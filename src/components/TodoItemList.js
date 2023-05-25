@@ -119,7 +119,7 @@ const ToDoItemList = ({ todoList, setTodoList, setIsLoading }) => {
 
   useEffect(() => {
     getTodo();
-  }, []);
+  }, [getTodo, debouncedUpdateTodoOrder, setTodoList]);
 
   const debouncedUpdateTodoOrder = async (updatedOrder) => {
     try {
@@ -168,7 +168,7 @@ const ToDoItemList = ({ todoList, setTodoList, setIsLoading }) => {
         },
       });
     }
-  }, [todoList]);
+  }, [todoList, getTodo, debouncedUpdateTodoOrder, setTodoList]);
 
 
   const completedList = todoList.filter((todoItem) => todoItem.done);

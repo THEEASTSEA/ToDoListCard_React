@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import InputBox from '../components/InputBox';
 import ToDoItemList from '../components/TodoItemList';
-import css from '../App.css'
 
 const Home = () => {
   const [todoList, setTodoList] = useState([]);
