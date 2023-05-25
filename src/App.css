@@ -41,6 +41,7 @@ body {
   display: block;
   width: 80px;
   border-radius: 50px;
+  cursor: pointer;
 }
 
 .Home .InputBox {
