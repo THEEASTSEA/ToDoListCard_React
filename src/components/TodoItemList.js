@@ -121,29 +121,33 @@ const ToDoItemList = ({ todoList, setTodoList, setIsLoading }) => {
     getTodo();
   }, [getTodo, debouncedUpdateTodoOrder, setTodoList]);
 
-  const debouncedUpdateTodoOrder = useCallback(async (updatedOrder) => {
-    try {
-      setIsLoading(true);
-      await fetch(
-        'https://asia-northeast3-heropy-api.cloudfunctions.net/api/todos/reorder',
-        {
-          method: 'PUT',
-          headers: {
-            'Content-Type': 'application/json',
-            apikey: 'KDT5_nREmPe9B',
-            username: 'KDT5_ParkYoungWoong',
-          },
-          body: JSON.stringify({
-            todoIds: updatedOrder,
-          }),
-        }
-      );
-    } catch (error) {
-      console.error('할 일 순서를 업데이트하는 중에 오류가 발생했습니다:', error);
-    } finally {
-      setIsLoading(false);
-    }
-  }, [])
+  const debouncedUpdateTodoOrder = useCallback(
+    async (updatedOrder) => {
+      try {
+        setIsLoading(true);
+        await fetch(
+          'https://asia-northeast3-heropy-api.cloudfunctions.net/api/todos/reorder',
+          {
+            method: 'PUT',
+            headers: {
+              'Content-Type': 'application/json',
+              apikey: 'KDT5_nREmPe9B',
+              username: 'KDT5_ParkYoungWoong',
+            },
+            body: JSON.stringify({
+              todoIds: updatedOrder,
+            }),
+          }
+        );
+      } catch (error) {
+        console.error('할 일 순서를 업데이트하는 중에 오류가 발생했습니다:', error);
+      } finally {
+        setIsLoading(false);
+      }
+    },
+    [setIsLoading, updateTodoOrder]
+  );
+
 
   useEffect(() => {
     if (sortableRef.current) {
