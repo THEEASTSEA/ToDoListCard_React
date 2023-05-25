@@ -1,6 +1,6 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef } from 'react';
 
-const InputBox = ({ todoList, setTodoList, isLoading, setIsLoading }) => {
+const InputBox = ({ setTodoList, isLoading, setIsLoading }) => {
   const [text, setText] = useState('');
   const [isPosting, setIsPosting] = useState(false);
   const inputRef = useRef(null);

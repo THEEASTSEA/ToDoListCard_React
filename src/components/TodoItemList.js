@@ -1,8 +1,8 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef } from 'react';
 import ToDoItem from './TodoItem';
 import Sortable from 'sortablejs';
 
-const ToDoItemList = ({ todoList, setTodoList, isLoading, setIsLoading }) => {
+const ToDoItemList = ({ todoList, setTodoList, setIsLoading }) => {
   const sortableRef = useRef(null);
   const debouncedUpdateOrder = useRef(null);
 
