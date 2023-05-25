@@ -188,7 +188,7 @@ const ToDoItemList = ({ todoList, setTodoList, setIsLoading }) => {
             {completedList.length > 0 ? (
               <span>오늘 할 일을 모두 끝낸 당신,<br />정말 훌륭해요! 👏🏼👏🏼👏🏼</span>
             ) : (
-              <span>등록된 할 일이 없어요!<br />지금 등록해 볼까요?</span>
+              <span>등록된 내역이 없어요!<br />오늘 할 일을 등록해 볼까요?🥸</span>
             )}
           </li>
         )}

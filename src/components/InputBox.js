@@ -62,7 +62,7 @@ const InputBox = ({ setTodoList, isLoading, setIsLoading }) => {
         type="text"
         name="todoItem"
         value={text}
-        placeholder="할 일"
+        placeholder="오늘 해야할 일"
         className="InputBox-Input"
         onChange={onChange}
         onKeyDown={handleKeyDown}

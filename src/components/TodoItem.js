@@ -1,25 +1,33 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 
 const ToDoItem = ({ todoItem, handleDelete, handleUpdate, todoList, setTodoList }) => {
   const { id, title, done, updatedAt, createdAt } = todoItem;
   const [updatedTitle, setUpdatedTitle] = useState(title);
+  const textareaRef = useRef(null);
+
+  useEffect(() => {
+    adjustTextareaHeight();
+  }, [updatedTitle]);
+
+  const adjustTextareaHeight = () => {
+    if (textareaRef.current) {
+      textareaRef.current.style.height = 'auto';
+      textareaRef.current.style.height = `${textareaRef.current.scrollHeight}px`;
+    }
+  };
 
   const onToggle = async () => {
     const updatedItem = { ...todoItem, done: !done };
     await handleUpdate(id, updatedItem);
-    // API 요청이 완료된 후에 상태 업데이트
     const updatedList = todoList.map((item) =>
       item.id === id ? { ...item, done: !item.done } : item
     );
     setTodoList(updatedList);
   };
 
-
-
   const onUpdate = async () => {
     const updatedItem = { ...todoItem, title: updatedTitle };
     await handleUpdate(id, updatedItem);
-    // API 요청이 완료된 후에 상태 업데이트
     const updatedList = todoList.map((item) =>
       item.id === id ? { ...item, title: updatedTitle } : item
     );
@@ -41,18 +49,19 @@ const ToDoItem = ({ todoItem, handleDelete, handleUpdate, todoList, setTodoList 
   };
 
   return (
-
     <li className={`ToDoItem ${done ? 'completed' : 'pending'}`}>
       <div className='input'>
         <input className='checkbox' type="checkbox" checked={done} onChange={onToggle} />
-        <input className='inputbox'
+        <textarea
+          ref={textareaRef}
+          className='inputbox'
           type="text"
           value={updatedTitle}
           onChange={(e) => setUpdatedTitle(e.target.value)}
           onKeyDown={handleKeyDown}
-          onBlur={handleBlur} // 입력이 끝나면 onUpdate 호출
-          disabled={done} // 체크되어 있으면 비활성화
-          style={{ textDecoration: done ? 'line-through' : 'none' }} // 체크되어 있으면 취소선 추가
+          onBlur={handleBlur}
+          disabled={done}
+          style={{ textDecoration: done ? 'line-through' : 'none' }}
         />
         <button className='oneDelete' onClick={onDelete}>삭제</button>
       </div>
