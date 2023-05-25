@@ -114,9 +114,6 @@ const ToDoItemList = ({ todoList, setTodoList, setIsLoading }) => {
     getTodo();
   }, [getTodo]);
 
-  const updateTodoOrder = useCallback((updatedOrder) => {
-    // Todo: 할 일 순서를 업데이트하는 로직 추가
-  }, []);
 
   const debouncedUpdateTodoOrder = useCallback(
     async (updatedOrder) => {
