@@ -112,7 +112,7 @@ const ToDoItemList = ({ todoList, setTodoList, setIsLoading }) => {
 
   useEffect(() => {
     getTodo();
-  }, [getTodo]);
+  }, [getTodo, setIsLoading, setTodoList]);
 
 
   const debouncedUpdateTodoOrder = useCallback(
@@ -144,7 +144,8 @@ const ToDoItemList = ({ todoList, setTodoList, setIsLoading }) => {
 
   useEffect(() => {
     if (sortableRef.current) {
-      Sortable.create(sortableRef.current, {
+      const sortable = new Sortable(sortableRef.current, {
+        animation: 1000,
         onEnd: ({ oldIndex, newIndex }) => {
           setTodoList((prevList) => {
             const updatedList = [...prevList];
@@ -162,8 +163,26 @@ const ToDoItemList = ({ todoList, setTodoList, setIsLoading }) => {
           });
         },
       });
+
+      sortable.option("onMove", function (evt) {
+        // 이동하는 요소에 애니메이션 클래스 추가
+        const item = evt.dragged;
+        item.classList.add("sortable-dragging");
+      });
+
+      sortable.option("onUnchoose", function (evt) {
+        // 이동이 완료되면 애니메이션 클래스 제거
+        const item = evt.item;
+        item.classList.remove("sortable-dragging");
+      });
+
+
+      return () => {
+        sortable.destroy(); // 컴포넌트 언마운트 시 Sortable.js 인스턴스 해제
+      };
     }
-  }, [sortableRef, debouncedUpdateTodoOrder, setTodoList]);
+  }, [sortableRef.current, debouncedUpdateTodoOrder, setTodoList]);
+
 
   const completedList = todoList.filter((todoItem) => todoItem.done);
   const incompleteList = todoList.filter((todoItem) => !todoItem.done);

@@ -424,3 +424,12 @@ body {
     transform: rotate(360deg);
   }
 }
+
+.sortable-dragging {
+  background-color: aliceblue;
+}
+
+.sortable-dragging.sortable-ghost {
+  opacity: 0.5;
+  transition: 0.5s;
+}
