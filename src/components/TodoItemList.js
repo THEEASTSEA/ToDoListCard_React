@@ -8,7 +8,7 @@ const ToDoItemList = ({ todoList, setTodoList, setIsLoading }) => {
 
   const getTodo = useCallback(async () => {
     try {
-      setIsLoading(true) // 로딩 시작
+      setIsLoading(true); // 로딩 시작
       const res = await fetch(
         'https://asia-northeast3-heropy-api.cloudfunctions.net/api/todos',
         {
@@ -25,14 +25,13 @@ const ToDoItemList = ({ todoList, setTodoList, setIsLoading }) => {
     } catch (error) {
       console.error('할 일 목록을 가져오는 중에 오류가 발생했습니다:', error);
     } finally {
-      setIsLoading(false) // 로딩 끝
+      setIsLoading(false); // 로딩 끝
     }
-  }, [])
-
+  }, [setIsLoading, setTodoList]);
 
   const deleteTodo = async (id) => {
     try {
-      setIsLoading(true) // 로딩 시작
+      setIsLoading(true); // 로딩 시작
       await fetch(
         `https://asia-northeast3-heropy-api.cloudfunctions.net/api/todos/${id}`,
         {
@@ -48,13 +47,13 @@ const ToDoItemList = ({ todoList, setTodoList, setIsLoading }) => {
     } catch (error) {
       console.error('할 일을 삭제하는 중에 오류가 발생했습니다:', error);
     } finally {
-      setIsLoading(false) // 로딩 끝
+      setIsLoading(false); // 로딩 끝
     }
   };
 
   const deleteCompletedTodos = async () => {
     try {
-      setIsLoading(true) // 로딩 시작
+      setIsLoading(true); // 로딩 시작
       const completedIds = todoList
         .filter((item) => item.done)
         .map((item) => item.id);
@@ -77,11 +76,9 @@ const ToDoItemList = ({ todoList, setTodoList, setIsLoading }) => {
     } catch (error) {
       console.error('완료된 할 일을 삭제하는 중에 오류가 발생했습니다:', error);
     } finally {
-      setIsLoading(false) // 로딩 끝
+      setIsLoading(false); // 로딩 끝
     }
   };
-
-
 
   const updateTodo = async (id, updatedData) => {
     try {
@@ -113,18 +110,13 @@ const ToDoItemList = ({ todoList, setTodoList, setIsLoading }) => {
     }
   };
 
-
-
-
-
   useEffect(() => {
     getTodo();
-  }, [getTodo, debouncedUpdateTodoOrder, setTodoList]);
-
+  }, [getTodo]);
 
   const updateTodoOrder = useCallback((updatedOrder) => {
+    // Todo: 할 일 순서를 업데이트하는 로직 추가
   }, []);
-
 
   const debouncedUpdateTodoOrder = useCallback(
     async (updatedOrder) => {
@@ -150,7 +142,7 @@ const ToDoItemList = ({ todoList, setTodoList, setIsLoading }) => {
         setIsLoading(false);
       }
     },
-    [setIsLoading, updateTodoOrder]
+    [setIsLoading]
   );
 
   useEffect(() => {
@@ -162,22 +154,19 @@ const ToDoItemList = ({ todoList, setTodoList, setIsLoading }) => {
             const [movedItem] = updatedList.splice(oldIndex, 1);
             updatedList.splice(newIndex, 0, movedItem);
 
-            // 이전에 예약된 디바운싱된 함수 취소
             clearTimeout(debouncedUpdateOrder.current);
 
-            // 일정 시간 후에 순서 업데이트 함수 호출
             debouncedUpdateOrder.current = setTimeout(() => {
               const updatedOrder = updatedList.map((item) => item.id);
               debouncedUpdateTodoOrder(updatedOrder);
-            }, 500); // 500ms 디바운스 지연 시간
+            }, 500);
 
             return updatedList;
           });
         },
       });
     }
-  }, [todoList, getTodo, debouncedUpdateTodoOrder, setTodoList]);
-
+  }, [sortableRef, debouncedUpdateTodoOrder, setTodoList]);
 
   const completedList = todoList.filter((todoItem) => todoItem.done);
   const incompleteList = todoList.filter((todoItem) => !todoItem.done);
@@ -198,12 +187,18 @@ const ToDoItemList = ({ todoList, setTodoList, setIsLoading }) => {
             />
           ))
         ) : (
-          <li>{completedList.length > 0 ? (<span>할 일을 모두 끝낸 당신,<br />정말 훌륭해요! 👏🏼👏🏼👏🏼<br /></span>) : (<span>새로운 할 일을 등록해 보세요!</span>)}</li>
-
+          <li>
+            {completedList.length > 0 ? (
+              <span>할 일을 모두 끝낸 당신,<br />정말 훌륭해요! 👏🏼👏🏼👏🏼<br /></span>
+            ) : (
+              <span>아직 할 일이 없습니다!</span>
+            )}
+          </li>
         )}
       </ul>
       {completedList.length > 0 && (
-        <div className='completed'>
+        <>
+          <hr className="TodoItemList-Divider" />
           <p className="TodoItemList-Title">완료</p>
           <ul className="TodoItemList-Item">
             {completedList.map((todoItem) => (
@@ -217,7 +212,16 @@ const ToDoItemList = ({ todoList, setTodoList, setIsLoading }) => {
               />
             ))}
           </ul>
-          <button className='completedListDelete' onClick={deleteCompletedTodos}> 완료 항목 삭제</button>
+        </>
+      )}
+      {completedList.length > 0 && (
+        <div className="TodoItemList-DeleteAll">
+          <button
+            className="TodoItemList-DeleteAllButton"
+            onClick={deleteCompletedTodos}
+          >
+            완료한 일 모두 삭제
+          </button>
         </div>
       )}
     </div>
