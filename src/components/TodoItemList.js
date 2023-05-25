@@ -6,7 +6,7 @@ const ToDoItemList = ({ todoList, setTodoList, setIsLoading }) => {
   const sortableRef = useRef(null);
   const debouncedUpdateOrder = useRef(null);
 
-  const getTodo = async () => {
+  const getTodo = useCallback(async () => {
     try {
       setIsLoading(true) // 로딩 시작
       const res = await fetch(
@@ -27,7 +27,7 @@ const ToDoItemList = ({ todoList, setTodoList, setIsLoading }) => {
     } finally {
       setIsLoading(false) // 로딩 끝
     }
-  };
+  }, [])
 
 
   const deleteTodo = async (id) => {
@@ -121,7 +121,7 @@ const ToDoItemList = ({ todoList, setTodoList, setIsLoading }) => {
     getTodo();
   }, [getTodo, debouncedUpdateTodoOrder, setTodoList]);
 
-  const debouncedUpdateTodoOrder = async (updatedOrder) => {
+  const debouncedUpdateTodoOrder = useCallback(async (updatedOrder) => {
     try {
       setIsLoading(true);
       await fetch(
@@ -143,7 +143,7 @@ const ToDoItemList = ({ todoList, setTodoList, setIsLoading }) => {
     } finally {
       setIsLoading(false);
     }
-  };
+  }, [])
 
   useEffect(() => {
     if (sortableRef.current) {
