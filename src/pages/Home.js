@@ -22,7 +22,7 @@ const Home = () => {
         <div className="today">
           <div>{today.year}년 {today.month}월 {today.date}일 <div className="week">{todayLabel}</div></div>
           <div className='profile'>
-            <img src='https://img1.daumcdn.net/thumb/C428x428/?scode=mtistory2&fname=https%3A%2F%2Ftistory4.daumcdn.net%2Ftistory%2F6081640%2Fattach%2F3f3363ce559e4391a84004653065d4a4' alt='' />
+            <a href='https://theeastsea.xyz' target='_blank'><img src='https://img1.daumcdn.net/thumb/C428x428/?scode=mtistory2&fname=https%3A%2F%2Ftistory4.daumcdn.net%2Ftistory%2F6081640%2Fattach%2F3f3363ce559e4391a84004653065d4a4' alt='프로필 이미지' /></a>
           </div>
         </div>
 
