@@ -186,16 +186,15 @@ const ToDoItemList = ({ todoList, setTodoList, setIsLoading }) => {
         ) : (
           <li>
             {completedList.length > 0 ? (
-              <span>할 일을 모두 끝낸 당신,<br />정말 훌륭해요! 👏🏼👏🏼👏🏼<br /></span>
+              <span>오늘 할 일을 모두 끝낸 당신,<br />정말 훌륭해요! 👏🏼👏🏼👏🏼</span>
             ) : (
-              <span>아직 할 일이 없습니다!</span>
+              <span>등록된 할 일이 없어요!<br />지금 등록해 볼까요?</span>
             )}
           </li>
         )}
       </ul>
       {completedList.length > 0 && (
         <>
-          <hr className="TodoItemList-Divider" />
           <p className="TodoItemList-Title">완료</p>
           <ul className="TodoItemList-Item">
             {completedList.map((todoItem) => (
@@ -217,7 +216,7 @@ const ToDoItemList = ({ todoList, setTodoList, setIsLoading }) => {
             className="TodoItemList-DeleteAllButton"
             onClick={deleteCompletedTodos}
           >
-            완료한 일 모두 삭제
+            완료 전체 삭제
           </button>
         </div>
       )}

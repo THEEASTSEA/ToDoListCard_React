@@ -20,7 +20,7 @@ body {
 }
 
 .Home .TodayDate {
-  font-size: 25px;
+  font-size: 30px;
   text-align: left;
   margin-top: 40px;
   margin-bottom: 40px;
@@ -86,6 +86,11 @@ body {
   text-align: center;
   justify-content: center;
   flex-direction: column;
+
+}
+
+.TodoItemList .completed {
+  background-color: rgba(169, 169, 169, 0.8)
 }
 
 .TodoItemList .TodoItemList-Item span {
@@ -99,13 +104,19 @@ body {
   align-items: center;
 }
 
-.TodoItemList .completed li {
-  background-color: rgba(169, 169, 169, 0.8)
-}
-
 .TodoItemList .completed .completedListDelete {
   border: none;
   width: 100%;
+  height: 50px;
+  border-radius: 30px;
+  font-size: 16px;
+  color: white;
+  background-color: tomato;
+}
+
+.TodoItemList .TodoItemList-DeleteAll .TodoItemList-DeleteAllButton {
+  border: none;
+  width: 300px;
   height: 50px;
   border-radius: 30px;
   font-size: 16px;
@@ -123,6 +134,7 @@ body {
 
 .TodoItemList-Title {
   font-size: 25px;
+  font-weight: 600;
   text-align: center;
 }
 
@@ -166,9 +178,9 @@ body {
 .TodoItemList ul li input {
   background-color: transparent;
   border: none;
-  font-size: 18px;
+  font-size: 20px;
   font-weight: 500;
-  width: auto;
+  max-width: 190px;
 }
 
 .TodoItemList ul li button {
