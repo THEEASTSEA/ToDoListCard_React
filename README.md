@@ -1,70 +1,68 @@
-# Getting Started with Create React App
+# ✏️ To Do List Card
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## 배포
 
-## Available Scripts
+ [ToDoListCard](https://todolistcard.netlify.app/)
 
-In the project directory, you can run:
+----------
 
-### `npm start`
+## 프리뷰
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+<img width="300px" src="https://github.com/THEEASTSEA/ToDoListCard_React/assets/125542536/c7d40182-dea4-4c39-9734-3446e1753f82" alt="">
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
 
-### `npm test`
+----------
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## 기술스택
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+[![Npm](https://camo.githubusercontent.com/afd3a4b22ff275fad5bfb52a091d5933fe213425e4bff924e88ae45f11f794b1/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f4e504d2d4342333833373f7374796c653d666c61742d737175617265266c6f676f3d6e706d266c6f676f436f6c6f723d7768697465)](https://camo.githubusercontent.com/afd3a4b22ff275fad5bfb52a091d5933fe213425e4bff924e88ae45f11f794b1/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f4e504d2d4342333833373f7374796c653d666c61742d737175617265266c6f676f3d6e706d266c6f676f436f6c6f723d7768697465) 
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+[![HTML5](https://camo.githubusercontent.com/78dc5835c254ff7423aabdd3a0fb6592c334072417a09e6556f446029395bae8/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f48544d4c352d4533344632363f7374796c653d666c61742d737175617265266c6f676f3d68746d6c35266c6f676f436f6c6f723d7768697465)](https://camo.githubusercontent.com/78dc5835c254ff7423aabdd3a0fb6592c334072417a09e6556f446029395bae8/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f48544d4c352d4533344632363f7374796c653d666c61742d737175617265266c6f676f3d68746d6c35266c6f676f436f6c6f723d7768697465)  [![JAVASCRIPT](https://camo.githubusercontent.com/400bc66d72448f5f1fa3ab036333af9578794af175639242723d7f5eac25c1f9/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f4a4156415343524950542d4637444631453f7374796c653d666c61742d737175617265266c6f676f3d6a617661736372697074266c6f676f436f6c6f723d7768697465)](https://camo.githubusercontent.com/400bc66d72448f5f1fa3ab036333af9578794af175639242723d7f5eac25c1f9/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f4a4156415343524950542d4637444631453f7374796c653d666c61742d737175617265266c6f676f3d6a617661736372697074266c6f676f436f6c6f723d7768697465) ![React](https://img.shields.io/badge/REACT-61DAFB?style=flat-square&logo=react&logoColor=white)
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+[![](https://camo.githubusercontent.com/69139a1fb652b0445950106929ffd6322b3299b73b82d629e720babb9cef1988/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f4e45544c4946592d3030433742373f7374796c653d666c61742d737175617265266c6f676f3d6e65746c696679266c6f676f436f6c6f723d7768697465)](https://camo.githubusercontent.com/69139a1fb652b0445950106929ffd6322b3299b73b82d629e720babb9cef1988/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f4e45544c4946592d3030433742373f7374796c653d666c61742d737175617265266c6f676f3d6e65746c696679266c6f676f436f6c6f723d7768697465)
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+----------
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## 요구사항
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### ❗ 필수
 
-## Learn More
+- [x] 할 일 목록(List)이 출력돼야 합니다.
+- [x] 할 일 항목(Item)을 새롭게 추가할 수 있어야 합니다.
+- [x] 할 일 항목을 수정할 수 있어야 합니다.
+- [x] 할 일 항목을 삭제할 수 있어야 합니다.
+- [x] 실제 서비스로 배포하고 접근 가능한 링크를 추가해야 합니다.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### ❔ 선택
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- [x] 할 일 항목의 순서를 바꿀 수 있도록 만들어보세요. (추천 라이브러리 - [SortableJS](http://sortablejs.github.io/Sortable/))
+- [x] 할 일을 완료하지 않은 항목과 완료한 항목을 분류해서 출력해보세요.
+- [x] 할 일을 완료한 항목을 한 번에 삭제할 수 있도록 만들어보세요.
+- [x] 할 일 항목의 최신 수정일을 표시해보세요.
+- [x] 할 일 목록이 출력되기 전에 로딩 애니메이션이 보이도록 만들어보세요.
+- [x] 기타 동작이 완료되기 전에 로딩 애니메이션이 보이도록 만들어보세요.
+- [x] 차별화가 가능하도록 프로젝트를 최대한 예쁘게 만들어보세요.
+- [ ] 할 일과 관련된 기타 기능도 고려해보세요.
 
-### Code Splitting
+----------
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## 기타기능
 
-### Analyzing the Bundle Size
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+----------
 
-### Making a Progressive Web App
+## 프로젝트 리뷰
+-
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+### 인사이트
+-  
+    
 
-### Advanced Configuration
+### 개선사항
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- 
+  
+- 뒤로가기 버튼 구현 : 영화 상세 페이지에서 이전 화면(검색 페이지)으로 이동하기 위해 '뒤로가기' 버튼을 구현하였으나, 브라우저의 뒤로가기와 같은 기본 방식으로, 이전 페이지가 검색 페이지가 아닐 경우 기능이 제대로 작동하지 않는 문제가 있습니다. (이전 페이지와는 상관 없이 현재 검색 내역 페이지로 이동할 수 있는 방법이 있을까요?) 
