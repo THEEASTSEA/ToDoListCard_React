@@ -288,6 +288,7 @@ body {
   height: auto;
   resize: none;
   padding: 10px;
+  text-align: center;
 }
 
 .TodoItemList ul li button {
