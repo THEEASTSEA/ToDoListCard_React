@@ -148,6 +148,10 @@ const ToDoItemList = ({ todoList, setTodoList, setIsLoading }) => {
     [setIsLoading, updateTodoOrder]
   );
 
+  const updateTodoOrder = useCallback((updatedOrder) => {
+    // TODO: Implement the logic to update the todo order
+  }, []);
+
 
   useEffect(() => {
     if (sortableRef.current) {
